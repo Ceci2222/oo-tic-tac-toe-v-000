@@ -53,7 +53,7 @@ class TicTacToe
 
   def turn_count
     counter = 0
-    board.each do |position|
+    @board.each do |position|
     if position == "O" || position == "X"
       counter += 1
     end
@@ -90,25 +90,25 @@ class TicTacToe
   end
 
   def over?
-    if ((won?(board) != false) && (full?(board) == false)) || draw?(board) == true || ((won?(board) != false) && (full?(board) == true))
+    if ((won? != false) && (full? == false)) || draw? == true || ((won? != false) && (full? == true))
       true
     end
   end
 
   def winner
-    if won?(board) != false
-      array = won?(board)
+    if won? != false
+      array = won?
       return @board[array[0]]
     end
   end
 
-  def play(board)
-    until over?(board) == true
-      turn(board)
+  def play
+    until over? == true
+      turn
     end
-    if won?(board)
+    if won?
       puts "Congratulations #{winner(board)}!"
-    elsif draw?(board)
+    elsif draw?
       puts "Cat's Game!"
     end
   end
